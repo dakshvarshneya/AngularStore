@@ -1,3 +1,3 @@
-# FlatLander-Store
+# Angular Store
 A basic project made using angular.js
-This website is live at https://arpitmalik.github.io/FlatLander-Store/
+View this live here[https://dakshvarshneya.github.io/AngularStore/]
