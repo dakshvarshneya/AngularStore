@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<head>
+	<title>FlatLander Gem Store-An Angular Store</title>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<style type="text/css">
+		a:hover {text-decoration: none;}
+	</style>
+</head>
+<body ng-controller="StoreController as store">
+	<div class="container">
+	<h1 style="text-align: center; text-decoration: underline;" >FlatLander Gem Store</h1>
+	<h2 style="text-align: center;">--An Angular Store--</h2>		
+	</div>
+	<br><br>
+	<div ng-repeat="product in store.products" class="container" style="border: 1px solid grey">
+		<h1>{{product.name}} <span ><h2 style="float: right; margin: 0px;">${{product.price}} </h2> </span></h1>
+		<center><img ng-src="{{product.image}}" height="15%" width="15%" style="border: 1px solid black;"></center>
+		<br><br>
+		<div ng-init="tab = 1">
+			<ul class="nav nav-pills">
+				<li ng-class="{ active: tab === 1}"><a href ng-click="tab = 1">Decription &nbsp;</a></li>
+				<li ng-class="{active: tab === 2}"><a href ng-click="tab = 2">Specifications &nbsp;</a></li>
+				<li ng-class="{active: tab === 3}"><a href ng-click="tab = 3">Reviews &nbsp;</a></li>
+			</ul>
+			
+			<div class="panel" ng-show="tab === 1">
+				<h4>Description</h4>
+				<blockquote>{{product.description}}</blockquote>
+			</div>
+			<div class="panel" ng-show="tab === 2">
+				<h4>Specification</h4>
+				<blockquote>None Yet</blockquote>
+			</div>
+			<div class="panel" ng-show="tab === 3">
+				<h4>Review</h4>
+				<blockquote ng-repeat="reviews in product.reviews">
+					<b>{{reviews.star}}Stars</b>
+					{{reviews.body}}
+					<cite>-{{reviews.author}}</cite>					
+				</blockquote>
+				<form name="review form">
+					<select style="width: 100%">
+							<option>5</option>
+							<option>4</option>
+							<option>3</option>
+							<option>2</option>
+							<option>1</option>
+					</select>
+					<br><BR>
+					<textarea style="width: 100%; overflow: auto;"></textarea>
+					<br>
+					<label style="width: 100%">By:</label>
+					<input type="email" placeholder="Enter Email">
+					<CENTER><input type="submit" ></CENTER>
+					</form>
+			</div>
+			
+		</div>
+		<center><p><button ng-show="product.canPurchase">Add to cart</button></p></center>
+
+	</div>
+	<br><br>
+
+
+<script type="text/javascript" src="angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
