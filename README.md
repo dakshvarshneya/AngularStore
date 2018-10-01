@@ -1,3 +1,4 @@
-# Angular Store
-A basic project made using angular.js
+# Flatlander - The Angular Store
+A simple gem selling store made using Angular.js 
+
 View this live [here](https://dakshvarshneya.github.io/AngularStore/)
